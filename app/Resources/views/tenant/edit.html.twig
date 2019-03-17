@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Редактирование данных арендатора</h1>
+
+    {{ form_start(edit_form) }}
+        {{ form_widget(edit_form) }}
+        <input class="btn btn-primary" type="submit" value="Сохранить" />
+    {{ form_end(edit_form) }}
+            <a class="btn btn-primary" href="{{ path('tenant_index') }}">Список арендаторов</a>
+            {{ form_start(delete_form) }}
+                <input class="btn btn-danger" type="submit" value="Удалить">
+            {{ form_end(delete_form) }}
+{% endblock %}

@@ -1,0 +1,25 @@
+tenant_index:
+    path:     /
+    defaults: { _controller: "DomCarBundle:Tenant:index" }
+    methods:  GET
+
+tenant_show:
+    path:     /{id}/show
+    defaults: { _controller: "DomCarBundle:Tenant:show" }
+    methods:  GET
+
+tenant_new:
+    path:     /new
+    defaults: { _controller: "DomCarBundle:Tenant:new" }
+    methods:  [GET, POST]
+
+tenant_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "DomCarBundle:Tenant:edit" }
+    methods:  [GET, POST]
+
+tenant_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "DomCarBundle:Tenant:delete" }
+    methods:  DELETE
+

@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <h1>History list</h1>
+    <select name="country_id" id="country_id">
+        <option value="0">- выберите машину -</option>
+        {% for car in cars %}
+            <option value="{{ car.id}}">{{ car.brand}}</option>
+        {% endfor %}
+    </select>
+    <table>
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Машина</th>
+            <th>ФИО арендатора</th>
+            <th>Datataking</th>
+            <th>Datareturn</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for history in histories %}
+            <tr>
+                <td><a href="{{ path('history_show', { 'id': history.id }) }}">{{ history.id }}</a></td>
+                <td>{{ history.car.brand }}</td>
+                <td>{{ history.tenant.fullname }}</td>
+                <td>{% if history.dataTaking %}{{ history.dataTaking|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if history.dataReturn %}{{ history.dataReturn|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('history_show', { 'id': history.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('history_edit', { 'id': history.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('history_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

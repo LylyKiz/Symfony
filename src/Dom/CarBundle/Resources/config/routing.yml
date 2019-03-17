@@ -1,0 +1,15 @@
+dom_car_car:
+    resource: "@DomCarBundle/Resources/config/routing/car.yml"
+    prefix:   /car
+
+dom_tenant_tenant:
+    resource: "@DomCarBundle/Resources/config/routing/tenant.yml"
+    prefix:   /tenant
+
+dom_history_history:
+    resource: "@DomCarBundle/Resources/config/routing/history.yml"
+    prefix:   /history
+
+dom_car_homepage:
+    path:     /
+    defaults: { _controller: DomCarBundle:Default:index }

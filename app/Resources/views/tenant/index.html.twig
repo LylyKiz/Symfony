@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Список арендаторов</h1>
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">№ п/п</th>
+                <th scope="col">ФИО</th>
+                <th scope="col">Дата добавления</th>
+                <th scope="col">Дата редактирования</th>
+                <th scope="col">Действия</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% set i = 1 %}
+        {% for tenant in tenants %}
+            <tr>
+                <td><a href="{{ path('tenant_show', { 'id': tenant.id }) }}">{{i}}</a></td>
+                <td>{{ tenant.fullName }}</td>
+                <td>{% if tenant.createdAt %}{{ tenant.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if tenant.updatedAt %}{{ tenant.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                            <a class="btn btn-primary" href="{{ path('tenant_show', { 'id': tenant.id }) }}">Просмотр</a>
+                            <a class="btn btn-success" href="{{ path('tenant_edit', { 'id': tenant.id }) }}">Редактировать</a>
+                </td>
+            </tr>
+            {% set i = i +1 %}
+        {% endfor %}
+        </tbody>
+    </table>
+            <a class="btn btn-primary"  href="{{ path('tenant_new') }}">Создать нового арендатора</a>
+    <a class="btn btn-primary"  href="{{ path('history_index') }}">История аренды</a>
+{% endblock %}
+

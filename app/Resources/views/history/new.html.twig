@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <h1>Создание</h1>
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <input class="btn btn-primary" type="submit" value="Сохранить" />
+    {{ form_end(form) }}
+         <a class="btn btn-primary" href="{{ path('history_index') }}">Обратно в список истории</a>
+{% endblock %}

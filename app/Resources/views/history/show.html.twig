@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Информация по истории</h1>
+
+    <table class="table table-hover">
+        <tbody>
+            <tr>
+                <th scope="row">Id</th>
+                <td>{{ history.id }}</td>
+            </tr>
+            <tr>
+                <th scope="row">Автомобиль</th>
+                <td>{{ history.car.brand }}</td>
+            </tr>
+            <tr>
+                <th scope="row">Арендатор</th>
+                <td>{{ history.tenant.fullname }}</td>
+            </tr>
+
+            <tr>
+                <th scope="row">Дата взятия в прокат</th>
+                <td>{% if history.dataTaking %}{{ history.dataTaking|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th scope="row">Дата возврата из проката</th>
+                <td>{% if history.dataReturn %}{{ history.dataReturn|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+            <a class="btn btn-primary" href="{{ path('history_index') }}">Обратно в список истории</a>
+            <a class="btn btn-success" href="{{ path('history_edit', { 'id': history.id }) }}">Редактировать</a>
+            {{ form_start(delete_form) }}
+                <input class="btn btn-danger" type="submit" value="Удалить">
+            {{ form_end(delete_form) }}
+{% endblock %}

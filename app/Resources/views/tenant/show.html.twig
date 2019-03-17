@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Информация по арендатору</h1>
+
+    <table class="table table-hover">
+        <tbody>
+            <tr>
+                <th scope="row">Id</th>
+                <td>{{ tenant.id }}</td>
+            </tr>
+            <tr>
+                <th scope="row">ФИО</th>
+                <td>{{ tenant.fullName }}</td>
+            </tr>
+            <tr>
+                <th scope="row">Дата добавления</th>
+                <td>{% if tenant.createdAt %}{{ tenant.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th scope="row">Дата редактирования</th>
+                <td>{% if tenant.updatedAt %}{{ tenant.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+            <a class="btn btn-primary" href="{{ path('tenant_index') }}">Список арендаторов</a>
+            <a class="btn btn-success" href="{{ path('tenant_edit', { 'id': tenant.id }) }}">Редактировать</a>
+            {{ form_start(delete_form) }}
+            <input class="btn btn-danger" type="submit" value="Удалить">
+            {{ form_end(delete_form) }}
+{% endblock %}
