@@ -21,19 +21,20 @@ class HistoryType extends AbstractType
         $builder
             ->add('dataTaking', DateTimeType::class,array(
 	            'label'  => 'Дата взятия в прокат'))
-            /*->add('dataReturn', DateTimeType::class,array(
+            ->add('dataReturn', DateTimeType::class,array(
 	            'label'  => 'Дата возврата в прокат'))
-*/
 	        ->add('car', EntityType::class, array(
 		        'class' =>'DomCarBundle:Car',
 		        'choice_label' => 'brand',
-		        'label'  => 'Автомобиль'
-	        ))
+		        'label'  => 'Автомобиль'))
 	        ->add('tenant', EntityType::class, array(
 		        'class' =>'DomCarBundle:Tenant',
 		        'choice_label' => 'fullname',
-		        'label'  => 'Арендатор'
-	        ))
+		        'label'  => 'Арендатор'))
+	        ->add('point', EntityType::class, array(
+	        'class' =>'DomCarBundle:Point',
+	        'choice_label' => 'adres',
+	        'label'  => 'Адрес точки проката'))
         ;
     }
     

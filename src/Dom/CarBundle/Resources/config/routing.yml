@@ -2,14 +2,23 @@ dom_car_car:
     resource: "@DomCarBundle/Resources/config/routing/car.yml"
     prefix:   /car
 
-dom_tenant_tenant:
+dom_car_tenant:
     resource: "@DomCarBundle/Resources/config/routing/tenant.yml"
     prefix:   /tenant
 
-dom_history_history:
+dom_car_history:
     resource: "@DomCarBundle/Resources/config/routing/history.yml"
     prefix:   /history
+
+dom_car_point:
+    resource: "@DomCarBundle/Resources/config/routing/point.yml"
+    prefix:   /point
+
+dom_car_statist:
+    resource: "@DomCarBundle/Resources/config/routing/statist.yml"
+    prefix:   /statist
 
 dom_car_homepage:
     path:     /
     defaults: { _controller: DomCarBundle:Default:index }
+

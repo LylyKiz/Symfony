@@ -17,7 +17,10 @@
                 <th scope="row">Арендатор</th>
                 <td>{{ history.tenant.fullname }}</td>
             </tr>
-
+            <tr>
+                <th scope="row">Точка проката</th>
+                <td>{{ history.point.adres }}</td>
+            </tr>
             <tr>
                 <th scope="row">Дата взятия в прокат</th>
                 <td>{% if history.dataTaking %}{{ history.dataTaking|date('Y-m-d H:i:s') }}{% endif %}</td>

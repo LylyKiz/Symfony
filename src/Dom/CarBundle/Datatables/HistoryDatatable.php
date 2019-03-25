@@ -57,6 +57,9 @@ class HistoryDatatable extends AbstractDatatable
 	        ->add('tenant.fullName', Column::class, array(
 		        'title' => 'Арендатор',
 	        ))
+	        ->add('point.adres', Column::class, array(
+		        'title' => 'Точка проката',
+	        ))
             /*->add('id', Column::class, array(
                 'title' => 'Id',
                 ))*/

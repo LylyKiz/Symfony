@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Создание точки проката</h1>
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <input class="btn btn-primary" type="submit" value="Сохранить" />
+    {{ form_end(form) }}
+
+            <a class="btn btn-primary" href="{{ path('point_index') }}">Список точек проката</a>
+{% endblock %}

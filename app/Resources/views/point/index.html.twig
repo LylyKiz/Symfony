@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Точки проката</h1>
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">№ п/п</th>
+                <th scope="col">Адрес</th>
+                <th scope="col">Действия</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% set i = 1 %}
+        {% for point in points %}
+            <tr>
+                <td><a href="{{ path('point_show', { 'id': point.id }) }}">{{ point.id }}</a></td>
+                <td>{{ point.adres }}</td>
+                <td>
+                            <a class="btn btn-primary" href="{{ path('point_show', { 'id': point.id }) }}">Просмотр</a>
+                            <a class="btn btn-success" href="{{ path('point_edit', { 'id': point.id }) }}">Редактирование</a>
+                </td>
+            </tr>
+            {% set i = i +1 %}
+        {% endfor %}
+        </tbody>
+    </table>
+            <a class="btn btn-primary" href="{{ path('point_new') }}">Создать точку проката</a>
+            <a class="btn btn-primary"  href="{{ path('history_index') }}">История аренды</a>
+{% endblock %}

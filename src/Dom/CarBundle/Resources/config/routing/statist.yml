@@ -1,0 +1,4 @@
+statist_index:
+    path:     /
+    defaults: { _controller: "DomCarBundle:Statist:index" }
+    methods:  GET

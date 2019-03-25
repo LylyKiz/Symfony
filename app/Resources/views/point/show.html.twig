@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Информация по точке доступа</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ point.id }}</td>
+            </tr>
+            <tr>
+                <th>Адрес</th>
+                <td>{{ point.adres }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+            <a class="btn btn-primary" href="{{ path('point_index') }}">Список точек доступа</a>
+            <a class="btn btn-success" href="{{ path('point_edit', { 'id': point.id }) }}">Редактировать</a>
+            {{ form_start(delete_form) }}
+                <input class="btn btn-danger" type="submit" value="Удалить">
+            {{ form_end(delete_form) }}
+{% endblock %}

@@ -48,6 +48,12 @@ class History
 	 */
 	private $tenant;
 
+	/**
+	 * @ORM\ManyToOne(targetEntity="Point", inversedBy="pointers")
+	 * @ORM\JoinColumn(name="point_id", referencedColumnName="id")
+	 */
+	private $point;
+
     /**
      * Get id
      *
@@ -153,4 +159,28 @@ class History
     {
         return $this->tenant;
     }
+
+	/**
+	 * Set point
+	 *
+	 * @param \Dom\CarBundle\Entity\Point $point
+	 *
+	 * @return History
+	 */
+	public function setPoint(\Dom\CarBundle\Entity\Point $point = null)
+	{
+		$this->point = $point;
+
+		return $this;
+	}
+
+	/**
+	 * Get point
+	 *
+	 * @return \Dom\CarBundle\Entity\Point
+	 */
+	public function getPoint()
+	{
+		return $this->point;
+	}
 }

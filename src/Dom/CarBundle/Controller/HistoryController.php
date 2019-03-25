@@ -104,7 +104,7 @@ class HistoryController extends Controller
     public function editAction(Request $request, History $history)
     {
         $deleteForm = $this->createDeleteForm($history);
-        $editForm = $this->createForm('Dom\CarBundle\Form\HistoryType2', $history);
+        $editForm = $this->createForm('Dom\CarBundle\Form\HistoryType', $history);
 
         $editForm->handleRequest($request);
 
