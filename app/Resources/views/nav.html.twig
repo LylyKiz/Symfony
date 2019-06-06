@@ -18,7 +18,9 @@
             <li class="nav-item {% if points is defined%} active {% endif %}">
                 <a class="nav-link" href="{{ path('point_index') }}">Точки проката</a>
             </li>
-
+            <li class="nav-item {% if statist is defined%} active {% endif %}">
+                <a class="nav-link" href="{{ path('statist_index') }}">Средняя продолжительность</a>
+            </li>
         </ul>
     </div>
 </nav>

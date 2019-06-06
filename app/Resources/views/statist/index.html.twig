@@ -1,16 +1,15 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-    {{ dump(datatable) }}
-    <h1>Список автомобилей</h1>
+    {#{{ dump(datatable) }}#}
+    <h1>Какова средняя продолжительность проката автомобиля каждой марки по
+        каждой точке</h1>
     <table class="table table-hover">
         <thead>
         <tr>
             <th scope="col">№ п/п</th>
             <th scope="col">Марка</th>
-            <th scope="col">Гос. номер</th>
-            <th scope="col">Дата добавления</th>
-            <th scope="col">Дата редактирования</th>
-            <th scope="col">Действия</th>
+            <th scope="col">Точка проката</th>
+            <th scope="col">Средняя продолжительность, дн.</th>
         </tr>
         </thead>
         <tbody>
@@ -18,7 +17,9 @@
         {% for key, statist in datatable %}
             <tr>
                 <td>{{i}}</td>
-                <td><a href="{{statist.name }}">{{i}}</a></td>
+                <td>{{statist.cars }}</td>
+                <td>{{statist.point }}</td>
+                <td>{{statist.dats|number_format(1, '.', ',') }}</td>
             </tr>
             {% set i = i +1 %}
         {% endfor %}

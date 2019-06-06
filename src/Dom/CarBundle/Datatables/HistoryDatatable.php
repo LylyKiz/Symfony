@@ -78,9 +78,12 @@ class HistoryDatatable extends AbstractDatatable
                 'default_content' => 'No value',
                 'date_format' => 'L',
                 'editable' => array(CombodateEditable::class, array(
-	                'format' => 'YYYY-MM-DD',
+	                'format' => 'YYYY-MM-DD HH:MM:SS',
 	                'view_format' => 'DD.MM.YYYY',
 	                //'pk' => 'cid'
+                )),
+                'filter' => array(DateRangeFilter::class, array(
+	                'cancel_button' => false,
                 )),
                 ))
            /* ->add('car.id', Column::class, array(
